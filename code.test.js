@@ -2,13 +2,41 @@ const fs = require('fs');
 const assert = require('assert');
 eval(fs.readFileSync('code.js')+'');
 
-assert(factorial(0) === 1);
-assert(factorial(1) === 1);
-assert(factorial(2) === 2);
-assert(factorial(3) === 6);
-assert(factorial(4) === 24);
-assert(factorial(5) === 120);
-assert(factorial(10) === 3628800);
+function testFactorial() {
+    let result = factorial(0);
+    let expected = [1];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(1);
+    expected = [1, 1];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(2);
+    expected = [1, 1, 2];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(3);
+    expected = [1, 1, 2, 6];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(4);
+    expected = [1, 1, 2, 6, 24];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(5);
+    expected = [1, 1, 2, 6, 24, 120];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+
+    result = factorial(10);
+    expected = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800];
+    assert.deepStrictEqual(result, expected, `Expected ${expected}, but got ${result}`);
+}
+
+try {
+    testFactorial();
+} catch (error) {
+    console.error("Test failed: ", error.message);
+}
 
 assert(e(0) === 1);
 assert(e(1) === 2);
