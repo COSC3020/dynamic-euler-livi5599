@@ -1,5 +1,5 @@
 function factorial(n) {
-    let table = new Array(n+1).fill(undefined);
+    let table = new Array(n+1);
     table[0] = 1;
     table[1] = 1;
     
@@ -11,7 +11,7 @@ function factorial(n) {
 }
 
 function e(n) {
-    let eTable = new Array(n+1).fill(undefined);
+    let eTable = new Array(n+1);
     let facTable = factorial(n);
     eTable[0] = 1;
 
